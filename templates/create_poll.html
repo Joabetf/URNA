@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Nova Urna</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Criar Nova Urna</h1>
+        <form action="/create_poll" method="POST">
+            <label for="title">Título da Votação:</label>
+            <input type="text" id="title" name="title" placeholder="Ex: Qual a melhor pizza?" required>
+
+            <label for="type">Tipo de Votação:</label>
+            <select id="type" name="type" required>
+                <option value="single_choice">Escolha Única</option>
+                <option value="multi_choice">Múltipla Escolha</option>
+            </select>
+
+            <label for="options">Opções (separadas por vírgula):</label>
+            <textarea id="options" name="options" rows="4" placeholder="Ex: Calabresa, Marguerita, Portuguesa" required></textarea>
+            
+            <button type="submit" class="button primary">Criar Urna</button>
+        </form>
+        <a href="{{ url_for('elections') }}" class="logout-link">Voltar para Eleições</a>
+    </div>
+</body>
+</html>

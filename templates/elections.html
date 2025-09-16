@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Eleições</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo, Eleitor {{ session.user_id }}</h1>
+        <p>Escolha uma eleição para votar ou crie uma nova.</p>
+        
+        <div class="polls-list">
+            {% for election in elections %}
+                <div class="poll-card">
+                    <h2>{{ election.title }}</h2>
+                    <p class="poll-type">Tipo: {{ "Múltipla Escolha" if election.type == 'multi_choice' else "Escolha Única" }}</p>
+                    {% if election.id in user_votes %}
+                        <p class="status-voted">Você já votou nesta eleição.</p>
+                        <a href="{{ url_for('results', election_id=election.id) }}" class="button primary">Ver Resultados</a>
+                    {% else %}
+                        <a href="{{ url_for('vote', election_id=election.id) }}" class="button primary">Votar Agora</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <a href="{{ url_for('create_poll') }}" class="button secondary create-poll">Criar Nova Urna</a>
+        <a href="{{ url_for('login') }}" class="logout-link">Sair</a>
+    </div>
+</body>
+</html>

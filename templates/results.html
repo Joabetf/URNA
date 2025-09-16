@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados - {{ election.title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Resultados: {{ election.title }}</h1>
+        <p>Total de votos computados: {{ total_votes }}</p>
+        <div class="results-list">
+            {% for option_text, vote_count in results.items() %}
+                <div class="result-item">
+                    <span>{{ option_text }}</span>
+                    <span class="vote-count">{{ vote_count }} votos</span>
+                </div>
+            {% else %}
+                <p>Nenhum voto registrado ainda.</p>
+            {% endfor %}
+        </div>
+        <a href="{{ url_for('elections') }}" class="logout-link">Voltar para Eleições</a>
+    </div>
+</body>
+</html>

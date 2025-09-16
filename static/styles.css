@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #7B68EE; /* Roxo suave e elegante */
+    --primary-dark-color: #6A5ACD; /* Roxo para hover */
+    --background-color: #0c0c1e; /* Azul marinho escuro */
+    --card-bg: #1a1a3a; /* Azul escuro sutilmente diferente */
+    --text-color: #e0e0f0; /* Cinza azulado claro */
+    --text-muted: #a0a0c0; /* Texto mais suave */
+    --border-color: #333366; /* Borda sutil */
+    --success-color: #4CAF50;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 2em 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 3em;
+    background-color: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 0.5em;
+    letter-spacing: 1px;
+}
+
+p.subtitle {
+    font-weight: 300;
+    color: var(--text-muted);
+    margin-bottom: 2em;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+a:hover {
+    color: var(--primary-dark-color);
+}
+
+.logout-link {
+    display: block;
+    margin-top: 1.5em;
+    font-weight: 600;
+}
+
+input[type="text"], input[type="password"], select, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0 20px 0;
+    border: 1px solid var(--border-color);
+    background-color: #2c2c5a;
+    color: var(--text-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.button, button {
+    display: inline-block;
+    padding: 1em 2em;
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    text-align: center;
+}
+
+.button.primary, button.primary {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(123, 104, 238, 0.3);
+}
+
+.button.primary:hover, button.primary:hover {
+    background-color: var(--primary-dark-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(123, 104, 238, 0.5);
+}
+
+.button.secondary, button.secondary {
+    background-color: #333366;
+    color: var(--text-color);
+}
+.button.secondary:hover, button.secondary:hover {
+    background-color: #444488;
+    transform: translateY(-2px);
+}
+
+/* Specific component styles */
+.polls-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    text-align: left;
+}
+
+.poll-card {
+    background-color: #1a1a3a;
+    padding: 1.5em;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.poll-card:hover {
+    transform: scale(1.02);
+}
+
+.status-voted {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.options-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 2em;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #2c2c5a;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.option-label:hover {
+    background-color: #3a3a7a;
+}
+
+.option-label input {
+    margin-right: 15px;
+    accent-color: var(--primary-color);
+}
+
+.results-list {
+    text-align: left;
+    margin-top: 2em;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #2c2c5a;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.vote-count {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1em;
+}

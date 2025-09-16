@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Login do Eleitor</h1>
+        <p>Insira seu ID único para acessar a urna.</p>
+        <form action="/login" method="POST">
+            <input type="text" name="user_id" placeholder="Seu ID" required>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>
